@@ -12,9 +12,11 @@ namespace WinForms
 {
     public partial class Form1 : Form
     {
+        WPF_UserControls.Customer customer = new WPF_UserControls.Customer();
         public Form1()
         {
             InitializeComponent();
+            elementHost.Child = customer;
         }
     }
 }
