@@ -3,9 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{4ABD4301-3954-43CB-8933-693750A88BB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{CB36686B-E491-4F58-9845-EE58DBA47DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF\WPF.csproj", "{3985837A-B655-49A2-AFA7-FC973BE67441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms\WinForms.csproj", "{29388673-91F4-469D-ABB6-0659573D59AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_UserControls", "WPF\WPF_UserControls\WPF_UserControls.csproj", "{A535B146-B057-4024-A76F-FB4B9E464269}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3985837A-B655-49A2-AFA7-FC973BE67441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3985837A-B655-49A2-AFA7-FC973BE67441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3985837A-B655-49A2-AFA7-FC973BE67441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3985837A-B655-49A2-AFA7-FC973BE67441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29388673-91F4-469D-ABB6-0659573D59AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29388673-91F4-469D-ABB6-0659573D59AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29388673-91F4-469D-ABB6-0659573D59AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29388673-91F4-469D-ABB6-0659573D59AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A535B146-B057-4024-A76F-FB4B9E464269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A535B146-B057-4024-A76F-FB4B9E464269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A535B146-B057-4024-A76F-FB4B9E464269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A535B146-B057-4024-A76F-FB4B9E464269}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3985837A-B655-49A2-AFA7-FC973BE67441} = {CB36686B-E491-4F58-9845-EE58DBA47DBA}
+		{29388673-91F4-469D-ABB6-0659573D59AD} = {4ABD4301-3954-43CB-8933-693750A88BB9}
+		{A535B146-B057-4024-A76F-FB4B9E464269} = {CB36686B-E491-4F58-9845-EE58DBA47DBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB6B1489-1118-4AE4-B53A-B1D65A2C60EF}
