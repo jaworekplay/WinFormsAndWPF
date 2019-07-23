@@ -39,5 +39,7 @@ namespace Models
                 OnPropertyChnaged();
             }
         }
+
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }
