@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DBSetup
 {
@@ -14,6 +16,7 @@ namespace DBSetup
                 var usersInDB = db.Users.Count();
                 Console.Write($"Users in database: {usersInDB}");
             }
+            Console.ReadKey();
         }
     }
 }

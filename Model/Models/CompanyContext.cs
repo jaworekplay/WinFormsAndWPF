@@ -20,7 +20,7 @@ namespace Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True"
+                .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FluentCompany;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True"
                                 , providerOptions => providerOptions.CommandTimeout(60));
         }
     }
