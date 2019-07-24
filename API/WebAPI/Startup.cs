@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 
 namespace WebAPI
 {
+    //how to host .NET Core API
+    //https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/windows-service?view=aspnetcore-2.2&tabs=visual-studio
     public class Startup
     {
         public Startup(IConfiguration configuration)
