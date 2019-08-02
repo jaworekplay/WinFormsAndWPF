@@ -7,8 +7,9 @@ namespace ViewModel.Commands
 {
     public class RelayCommand : ICommand
     {
-        Action<object> _execute;
-        Predicate<object> _canExecute;
+        public event EventHandler CanExecuteChanged;
+        private Action<object> _execute;
+        private Predicate<object> _canExecute;
 
         public RelayCommand(Action<object> execute)
         {
@@ -20,13 +21,6 @@ namespace ViewModel.Commands
         {
             _execute = execute;
             _canExecute = canExecute;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public bool CanExecute(object parameter)

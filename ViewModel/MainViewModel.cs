@@ -1,30 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Models;
 using ViewModel.Commands;
 
 namespace ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        private ObservableCollection<Models.User> _users;
+        private ObservableCollection<User> _users;
         private ICommand _deleteCommand;
 
         public MainViewModel()
         {
-            Users = new ObservableCollection<Models.User>();
+            Users = new ObservableCollection<User>();
 
-            for (int i = 0; i < 100; i++)
-            {
-                Users.Add(new Models.User { ID = i, FirstName = "John", Surname = "Connor" });
-            }
+            InitialiseComponents();
 
-            DeleteCommand = new RelayCommand(deleteCommandMethod);
+            DeleteCommand = new RelayCommand(deleteCommandMethod, canExecuteDeleteCommandMethod);
         }
 
-        public ObservableCollection<Models.User> Users
+        void InitialiseComponents()
+        {
+            using (var db = new CompanyContext())
+            {
+                foreach (var u in db.Users.ToList())
+                {
+                    Users.Add(u);
+                }
+            }
+        }
+
+        public ObservableCollection<User> Users
         {
             get { return _users; }
             set
@@ -34,12 +44,17 @@ namespace ViewModel
             }
         }
 
-        private Models.User selectedUser;
+        private User selectedUser;
 
-        public Models.User SelectedUser
+        public User SelectedUser
         {
             get { return selectedUser; }
-            set { selectedUser = value; OnPropertyChnaged(); }
+            set
+            {
+                selectedUser = value;
+                OnPropertyChnaged();
+                (DeleteCommand as RelayCommand).RaiseCanExecuteChanged();
+            }
         }
         
         public ICommand DeleteCommand
@@ -51,8 +66,21 @@ namespace ViewModel
             }
         }
 
+        private bool canExecuteDeleteCommandMethod(object parameter)
+        {
+            return SelectedUser != null;
+        }
+
         private void deleteCommandMethod(object parameter)
         {
+            if (parameter is ObservableCollection<object> users)
+            {
+                var items = users.Cast<User>().ToList();
+                foreach (var user in items)
+                {
+                    Users.Remove(user);
+                }
+            }
             Users.Remove(SelectedUser);
         }
     }

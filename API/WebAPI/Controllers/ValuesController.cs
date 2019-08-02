@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public List<Models.User> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = new List<Models.User>();
+            using (var db = new Models.CompanyContext())
+            {
+                result = db.Users.ToList();
+            }
+
+            return result;
         }
 
         // GET api/values/5
