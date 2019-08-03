@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WPF_UserControls.Printing.LoanConfirmation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:model="clr-namespace:Models;assembly=Models"
+             xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+             xmlns:local="clr-namespace:WPF_UserControls.Printing"
+             mc:Ignorable="d" 
+             Height="29.7cm" Width="21cm" d:DataContext="{d:DesignInstance vm:LoanConfirmationViewModel}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type model:LoanPurpose}">
+            <TextBlock>
+                ID (this is for debug only): <Run Text="{Binding ID}"/>, Purpose: <Run Text="{Binding Notes}"/>
+            </TextBlock>
+        </DataTemplate>
+    </UserControl.Resources>
+    <FlowDocument PageWidth="21cm" PageHeight="29.7cm">
+        <Paragraph>
+            <TextBlock Width="779" Height="141">
+                Hello <Run Text="{Binding GreetingTitle}"/>,<LineBreak/>
+                We are happy to inform you that your application was successful.<LineBreak/>
+                This means that the amount you requested <Run DataContext="{Binding Application}" Text="{Binding Advance}"/> will be paid into your account.
+            </TextBlock>
+        </Paragraph>
+        <Paragraph>
+            Some text here
+        </Paragraph>
+        <BlockUIContainer DataContext="{Binding Application}">
+            <ListView ItemsSource="{Binding BreakDown}"/>
+        </BlockUIContainer>
+    </FlowDocument>
+</UserControl>

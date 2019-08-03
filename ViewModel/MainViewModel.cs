@@ -19,6 +19,7 @@ namespace ViewModel
             Users = new ObservableCollection<User>();
 
             InitialiseComponents();
+            CurrentViewModel = new LoanConfirmationViewModel();
 
             DeleteCommand = new RelayCommand(deleteCommandMethod, canExecuteDeleteCommandMethod);
         }
@@ -69,6 +70,14 @@ namespace ViewModel
         private bool canExecuteDeleteCommandMethod(object parameter)
         {
             return SelectedUser != null;
+        }
+
+        private BaseViewModel currentViewModel;
+
+        public BaseViewModel CurrentViewModel
+        {
+            get { return currentViewModel; }
+            set { currentViewModel = value; OnPropertyChnaged(); }
         }
 
         private void deleteCommandMethod(object parameter)
