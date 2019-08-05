@@ -15,7 +15,7 @@
             </TextBlock>
         </DataTemplate>
     </UserControl.Resources>
-    <FlowDocument PageWidth="21cm" PageHeight="29.7cm">
+    <FlowDocument ColumnWidth="21cm" PageWidth="21cm" PageHeight="29.7cm">
         <Paragraph>
             <TextBlock Width="779" Height="141">
                 Hello <Run Text="{Binding GreetingTitle}"/>,<LineBreak/>
@@ -26,6 +26,9 @@
         <Paragraph>
             Some text here
         </Paragraph>
+        <List>
+
+        </List>
         <BlockUIContainer DataContext="{Binding Application}">
             <ListView ItemsSource="{Binding Breakdown}"/>
         </BlockUIContainer>
