@@ -27,7 +27,7 @@
             Some text here
         </Paragraph>
         <BlockUIContainer DataContext="{Binding Application}">
-            <ListView ItemsSource="{Binding BreakDown}"/>
+            <ListView ItemsSource="{Binding Breakdown}"/>
         </BlockUIContainer>
     </FlowDocument>
 </UserControl>
