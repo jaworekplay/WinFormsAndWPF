@@ -24,10 +24,68 @@
             </TextBlock>
         </Paragraph>
         <Paragraph>
-            Some text here
+            <TextBlock>
+                <TextBlock.Text>
+                    Some text here
+                </TextBlock.Text>
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="12" Color="Orange" Opacity="1" ShadowDepth="0" RenderingBias="Quality"/>
+                </TextBlock.Effect>
+            </TextBlock>
         </Paragraph>
         <List>
+            <ListItem>
+                <Paragraph>
+                    <TextBlock>First item in the list</TextBlock>
+                    <Rectangle Height="40" Width="40" Fill="Aquamarine">
+                        <Rectangle.Effect>
+                            <BlurEffect Radius="15"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+                    <Ellipse Height="40" Width="40" Fill="IndianRed">
+                        <Ellipse.Effect>
+                            <DropShadowEffect ShadowDepth="0" Color="BlueViolet" Opacity="1" BlurRadius="15"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Rectangle Width="40" Height="20" Fill="ForestGreen"/>
+                    <Border Height="40" Width="20" Background="ForestGreen" CornerRadius="5"/>
+                    <Border Height="40" Width="40" Background="Aquamarine" CornerRadius="5"/>
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    <Viewbox RenderTransformOrigin="0.5,0.5">
+                        <Viewbox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.4" ScaleY="0.4"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Viewbox.RenderTransform>
+                        <Polyline
+                            Points="10,110 60,10 110,110 105,110 60,18 15,110 10,110"
+                            Stroke="#BB0000"
+                            Fill="#FF0000"
+                            StrokeThickness="2" >
+                            <Polyline.Effect>
+                                <DropShadowEffect Color="#FF9999" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                            </Polyline.Effect>
+                        </Polyline>
 
+                        <!--<Polyline
+                            Points="10,105 110,105 110,10 115,10 115,110 10,110 10,105"
+                            Stroke="#00BB00"
+                            Fill="#00FF00"
+                            StrokeThickness="2"
+                            Canvas.Left="150">
+                            <Polyline.Effect>
+                                <DropShadowEffect Color="#99FF99" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                            </Polyline.Effect>
+                        </Polyline>-->
+                    </Viewbox>
+                </Paragraph>
+            </ListItem>
         </List>
         <BlockUIContainer DataContext="{Binding Application}">
             <ListView ItemsSource="{Binding Breakdown}"/>
