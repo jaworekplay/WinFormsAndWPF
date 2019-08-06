@@ -8,11 +8,10 @@ namespace ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChnaged([CallerMemberName] string prop = null)
+        protected void OnPropertyChanged([CallerMemberName] string prop = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -23,9 +23,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -34,11 +31,6 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ContentControl Grid.ColumnSpan="5" Grid.RowSpan="3" Content="{Binding CurrentViewModel}"/>
-        <Button Content="Save" Grid.Row="3"/>
-        <Button Content="Edit" Grid.Row="3" Grid.Column="1"/>
-        <Button Content="Create" Grid.Row="3" Grid.Column="2"/>
-        <Button Content="Update" Grid.Row="3" Grid.Column="3"/>
-        <Button Content="Delete" Grid.Row="3" Grid.Column="4" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=Users, Path=SelectedItems}"/>
+        <ContentControl Grid.ColumnSpan="5" Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

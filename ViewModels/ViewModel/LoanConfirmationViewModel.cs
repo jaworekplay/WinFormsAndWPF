@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Documents;
+using System.Windows.Input;
+using ViewModel.Commands;
 
 namespace ViewModel
 {
     public class LoanConfirmationViewModel : BaseViewModel
     {
         private Models.Application application;
+        private Services.Printing.IService printingService;
 
         public LoanConfirmationViewModel()
         {
@@ -19,12 +23,15 @@ namespace ViewModel
             }
 
             GreetingTitle = "Mr. L Banach";
+
+            PrintCommand = new RelayCommand(printCommandMethod);
+            printingService = new Services.Printing.Service();
         }
 
         public Models.Application Application
         {
             get { return application; }
-            set { application = value; OnPropertyChnaged(); }
+            set { application = value; OnPropertyChanged(); }
         }
 
         private string greetingTitle;
@@ -32,7 +39,23 @@ namespace ViewModel
         public string GreetingTitle
         {
             get { return greetingTitle; }
-            set { greetingTitle = value; OnPropertyChnaged(); }
+            set { greetingTitle = value; OnPropertyChanged(); }
+        }
+
+        private ICommand printCommand;
+
+        public ICommand PrintCommand
+        {
+            get { return printCommand; }
+            set { printCommand = value; OnPropertyChanged(); }
+        }
+
+        private void printCommandMethod(object parameter)
+        {
+            if (parameter is FlowDocument fd)
+            {
+                printingService.Print(fd, "Loan Confirmation Letter");
+            }
         }
     }
 }
