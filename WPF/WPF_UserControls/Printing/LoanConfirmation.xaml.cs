@@ -20,9 +20,32 @@ namespace WPF_UserControls.Printing
     /// </summary>
     public partial class LoanConfirmation : UserControl
     {
+        public ViewModel.LoanConfirmationViewModel ViewModel { get; set; }
+
         public LoanConfirmation()
         {
             InitializeComponent();
+            populateTable();
+        }
+
+        void populateTable()
+        {
+            //7 columns
+            var vm = this.DataContext as ViewModel.LoanConfirmationViewModel;
+            ViewModel = vm;
+            for (int i = 0; i < 120; i++)
+            {
+                var currentRow = new TableRow();
+                Table.RowGroups[0].Rows.Add(currentRow);
+
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+                currentRow.Cells.Add(new TableCell(new Paragraph(new Run($"{i}"))));
+            }
         }
     }
 }

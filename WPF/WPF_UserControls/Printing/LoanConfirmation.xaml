@@ -94,6 +94,33 @@
                         </Paragraph>
                     </ListItem>
                 </List>
+                <Table Name="Table">
+                    <TableRowGroup>
+                        <TableRow TextElement.FontWeight="SemiBold">
+                            <TableCell>
+                                <Paragraph>No</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Number</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Nsn</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Aql</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Ok</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Exchange</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Deficient</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
                 <BlockUIContainer DataContext="{Binding Application}">
                     <ListView ItemsSource="{Binding Breakdown}"/>
                 </BlockUIContainer>
