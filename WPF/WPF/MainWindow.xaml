@@ -8,7 +8,7 @@
         xmlns:uc="clr-namespace:WPF_UserControls;assembly=WPF_UserControls"
         xmlns:printing="clr-namespace:WPF_UserControls.Printing;assembly=WPF_UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>

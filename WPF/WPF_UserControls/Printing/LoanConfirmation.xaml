@@ -20,14 +20,13 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <FlowDocumentReader>
             <FlowDocument ColumnWidth="21cm" PageWidth="21cm" PageHeight="29.7cm" x:Name="FlowDocument">
                 <Paragraph>
-                    <TextBlock Width="779" Height="141">
-                Hello <Run Text="{Binding GreetingTitle}"/>,<LineBreak/>
-                We are happy to inform you that your application was successful.<LineBreak/>
-                This means that the amount you requested <Run DataContext="{Binding Application}" Text="{Binding Advance}"/> will be paid into your account.
+                    <TextBlock>
+                        Hello <Run Text="{Binding GreetingTitle}"/>,<LineBreak/>
+                        We are happy to inform you that your application was successful.<LineBreak/>
+                        This means that the amount you requested <Run DataContext="{Binding Application}" Text="{Binding Advance}"/> will be paid into your account.
                     </TextBlock>
                 </Paragraph>
                 <Paragraph>
