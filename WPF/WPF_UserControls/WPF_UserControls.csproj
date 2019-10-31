@@ -51,6 +51,12 @@
     <Compile Include="Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LargeData.xaml.cs">
+      <DependentUpon>LargeData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Printing\LoanConfirmation.xaml.cs">
       <DependentUpon>LoanConfirmation.xaml</DependentUpon>
     </Compile>
@@ -81,6 +87,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LargeData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

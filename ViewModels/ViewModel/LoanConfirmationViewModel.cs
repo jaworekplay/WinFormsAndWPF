@@ -54,6 +54,7 @@ namespace ViewModel
         {
             if (parameter is FlowDocument fd)
             {
+                printingService.AutoPrint(fd, "Report", "Loan Confirmation");
                 printingService.Print(fd, "Loan Confirmation Letter");
             }
         }

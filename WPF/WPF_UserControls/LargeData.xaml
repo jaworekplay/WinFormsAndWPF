@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WPF_UserControls.LargeData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_UserControls"
+             xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="800" d:DataContext="{d:DesignInstance vm:LargeDataViewModel}">
+    <ListView ItemsSource="{Binding Products}" VirtualizingPanel.IsVirtualizing="False">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Lender" DisplayMemberBinding="{Binding LenderName}"/>
+                <GridViewColumn Header="Plan Name" DisplayMemberBinding="{Binding PlanName}"/>
+                <GridViewColumn Header="Fixed Repayment" DisplayMemberBinding="{Binding FixedPayment}"/>
+                <GridViewColumn Header="Fixed Rate" DisplayMemberBinding="{Binding FixedRate}"/>
+                <GridViewColumn Header="Fixed Term" DisplayMemberBinding="{Binding FixedTerm}"/>
+                <GridViewColumn Header="APR" DisplayMemberBinding="{Binding APR}"/>
+                <GridViewColumn Header="Variable Payment" DisplayMemberBinding="{Binding VariablePayment}"/>
+                <GridViewColumn Header="Broker Fee" DisplayMemberBinding="{Binding BrokerFee}"/>
+                <GridViewColumn Header="Commission" DisplayMemberBinding="{Binding Commission}"/>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>

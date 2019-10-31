@@ -15,7 +15,7 @@ namespace ViewModel
             PrintCommand = new RelayCommand(printCommandMethod);
             printingService = new Services.Printing.Service();
 
-            CurrentViewModel = new LoanConfirmationViewModel();
+            CurrentViewModel = new LargeDataViewModel();
         }
 
         private BaseViewModel currentViewModel;

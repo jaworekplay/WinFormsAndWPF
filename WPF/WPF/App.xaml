@@ -1,9 +1,18 @@
 ﻿<Application x:Class="WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPF"
+             xmlns:uc="clr-namespace:WPF_UserControls;assembly=WPF_UserControls"
+             xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="dtUser">
+            <uc:User/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LoanConfirmationViewModel}">
+            <uc:Loading/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LargeDataViewModel}">
+            <uc:LargeData/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
