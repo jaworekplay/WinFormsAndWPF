@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         xmlns:local="clr-namespace:WPF"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:uc="clr-namespace:WPF_UserControls;assembly=WPF_UserControls"
         xmlns:printing="clr-namespace:WPF_UserControls.Printing;assembly=WPF_UserControls"
+        xmlns:converters="clr-namespace:WPF_UserControls.Converters;assembly=WPF_UserControls"
         mc:Ignorable="d"
         Title="MainWindow">
     <Window.DataContext>
@@ -18,9 +21,19 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:LoanConfirmationViewModel}">
             <printing:LoanConfirmation/>
+            <!--<printing:LoanConfirmationFixedDocument/>-->
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ParentViewModel}">
+            <uc:JustListView/>
+        </DataTemplate>
+        <converters:BoolToCollapsedConverter x:Key="BoolToCollapsedConverter"/>
     </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -28,6 +41,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ContentControl Grid.ColumnSpan="5" Content="{Binding CurrentViewModel}"/>
+        <Button Content="Print" Command="{Binding CurrentViewModel.PrintCommand}" Click="btnTest_Click"/>
+        <ContentControl Grid.ColumnSpan="5" Content="{Binding CurrentViewModel}" Grid.Row="1"/>
     </Grid>
 </Window>

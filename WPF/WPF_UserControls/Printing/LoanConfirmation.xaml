@@ -9,6 +9,9 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:LoanConfirmationViewModel}">
     <UserControl.Resources>
+        <Style TargetType="Run">
+            <Setter Property="Foreground" Value="DarkGray"/>
+        </Style>
         <DataTemplate DataType="{x:Type model:LoanPurpose}">
             <TextBlock>
                 ID (this is for debug only): <Run Text="{Binding ID}"/>, Purpose: <Run Text="{Binding Notes}"/>

@@ -48,11 +48,22 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BoolToCollapsedConverter.cs" />
+    <Compile Include="Converters\PrintingMultiValueConverter.cs" />
     <Compile Include="Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JustListView.xaml.cs">
+      <DependentUpon>JustListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\ClientCreditReport.xaml.cs">
+      <DependentUpon>ClientCreditReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Printing\LoanConfirmation.xaml.cs">
       <DependentUpon>LoanConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\LoanConfirmationFixedDocument.xaml.cs">
+      <DependentUpon>LoanConfirmationFixedDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -84,7 +95,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="JustListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Printing\ClientCreditReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Printing\LoanConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Printing\LoanConfirmationFixedDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Documents;
+﻿using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Services.Printing
 {
@@ -6,5 +7,6 @@ namespace Services.Printing
     {
         void Print(FlowDocument fd, string title);
         void PromptlessPrint(FlowDocument fd, string title);
+        void PromptlessPrint2(string fileName);
     }
 }
