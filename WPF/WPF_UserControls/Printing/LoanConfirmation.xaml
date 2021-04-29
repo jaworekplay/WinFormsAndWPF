@@ -9,6 +9,9 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:LoanConfirmationViewModel}">
     <UserControl.Resources>
+        <Style TargetType="Run">
+            <Setter Property="Foreground" Value="DarkGray"/>
+        </Style>
         <DataTemplate DataType="{x:Type model:LoanPurpose}">
             <TextBlock>
                 ID (this is for debug only): <Run Text="{Binding ID}"/>, Purpose: <Run Text="{Binding Notes}"/>
@@ -20,7 +23,6 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <FlowDocumentReader>
             <FlowDocument ColumnWidth="20cm" PageWidth="20cm" PageHeight="28.7cm" x:Name="FlowDocument">
                 <Paragraph>
@@ -29,6 +31,33 @@
                         We are happy to inform you that your application was successful.<LineBreak/>
                         This means that the amount you requested <Run DataContext="{Binding Application}" Text="{Binding Advance}"/> will be paid into your account.
                     </TextBlock>
+                </Paragraph>
+                <Paragraph>
+                    <Run>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam posuere, leo a volutpat auctor, eros arcu mollis sapien, vitae euismod erat justo a dui. Quisque vel congue risus. Curabitur et diam non augue iaculis rhoncus ac a arcu. Donec a efficitur purus. Fusce aliquam diam porta posuere venenatis. In sodales cursus est, nec cursus mi semper id. Vivamus at dapibus enim, nec auctor sapien. Fusce sodales tincidunt lorem, commodo eleifend lacus. Vivamus et elementum justo. Duis non finibus dui. Cras mollis ante aliquet interdum condimentum. Integer euismod molestie augue, at ultrices lacus tristique ut. Maecenas laoreet porta ex a hendrerit. Suspendisse eu aliquam augue, vel imperdiet eros. Duis pulvinar ante vel felis consectetur ultricies. Sed eget dui et est fringilla elementum at a arcu.
+
+Duis viverra metus at enim dignissim sodales. Etiam posuere pellentesque ex eget semper. Quisque scelerisque erat in suscipit lacinia. Nulla eget eros odio. Nunc fermentum massa ut malesuada dictum. Aliquam egestas mi interdum eros rutrum fringilla. Cras vestibulum orci ipsum, id malesuada ante porttitor ac. Maecenas porttitor neque auctor, sagittis felis sit amet, porttitor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer metus mauris, lobortis vitae accumsan vel, dignissim et ex. Phasellus tempor magna vel sem bibendum, quis varius neque tristique. Fusce interdum risus id nulla vestibulum tristique.
+
+Nullam quis fringilla elit, in tincidunt mauris. Proin sit amet facilisis ligula, ut finibus tortor. Aenean in felis quis magna pellentesque tincidunt. Pellentesque luctus dignissim justo, commodo pellentesque augue commodo quis. Maecenas ac venenatis erat. Sed pellentesque lorem eget gravida tempor. Ut sodales, leo tempor tempus vestibulum, tortor turpis laoreet felis, a lacinia quam leo id velit. Vivamus varius nisi mollis dolor auctor semper. Pellentesque ultricies, dui eu rutrum interdum, augue urna ullamcorper sapien, sed finibus velit neque quis nisi. Sed sit amet tempor elit. Fusce dapibus tellus sit amet enim aliquet rutrum. Donec ut eros arcu. Maecenas nibh nisi, pulvinar ac ultrices vitae, eleifend nec urna. Etiam ultricies, leo eu bibendum consequat, nibh tortor elementum est, in tincidunt eros lorem at ipsum.
+
+Pellentesque arcu nisi, condimentum sed sem eget, laoreet egestas augue. Donec eget nibh eu diam auctor sodales. Praesent nec est sit amet justo rhoncus ultricies. Donec cursus lorem justo, eget aliquet elit vulputate et. Nulla egestas odio at velit varius, non accumsan mauris fermentum. Curabitur non risus eget velit convallis porttitor. Nam porta turpis nibh, vel lobortis ipsum consectetur vitae. Fusce consectetur ultrices placerat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum fermentum nisl hendrerit mattis.
+
+Aenean in aliquam eros, id hendrerit nulla. Morbi pharetra scelerisque diam, vel tincidunt arcu mollis et. Vivamus efficitur porta felis ac dictum. Quisque vitae tortor sed quam scelerisque gravida a accumsan ipsum. Curabitur viverra arcu leo, in luctus nunc posuere sed. In laoreet commodo purus, cursus iaculis libero ullamcorper quis. Fusce nisi ante, vulputate vitae sapien rutrum, viverra laoreet felis. Suspendisse viverra gravida turpis a pulvinar. Aenean quis ipsum mauris. Vivamus eget augue ut nibh porttitor sagittis non non eros. Suspendisse sapien ex, ultrices eu volutpat nec, hendrerit at erat. Morbi eu interdum justo, eu fringilla erat. Integer nibh mauris, iaculis non vestibulum vel, condimentum sodales justo. Suspendisse sed risus elit.
+
+Integer dolor sem, feugiat quis ligula a, fermentum lobortis erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet nunc eget blandit bibendum. Ut et dictum enim. In tristique lectus sed magna maximus, in fermentum libero fringilla. Suspendisse potenti. Aliquam velit purus, vestibulum ultrices ante sit amet, ultricies pulvinar ante. In tortor velit, pulvinar id consequat sit amet, varius sit amet lacus. Maecenas maximus ligula massa, a posuere ligula aliquam vitae. Integer aliquam ullamcorper enim et sodales. Fusce ultrices, enim et dictum ornare, sapien lorem euismod nisl, ac luctus ante nunc nec mi. Fusce quis libero mollis lorem malesuada tempor. Nunc tempor porta justo, at vestibulum quam porta sit amet.
+
+Vestibulum vitae vulputate nibh. Pellentesque hendrerit velit neque, nec vestibulum mauris facilisis eu. Donec malesuada, est eget tincidunt luctus, dui massa sagittis dolor, ut auctor dui sapien in est. Mauris condimentum sit amet nisi eget aliquet. Maecenas feugiat id nulla et volutpat. Aenean sit amet felis vel est placerat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+
+                        Nullam quis fringilla elit, in tincidunt mauris. Proin sit amet facilisis ligula, ut finibus tortor. Aenean in felis quis magna pellentesque tincidunt. Pellentesque luctus dignissim justo, commodo pellentesque augue commodo quis. Maecenas ac venenatis erat. Sed pellentesque lorem eget gravida tempor. Ut sodales, leo tempor tempus vestibulum, tortor turpis laoreet felis, a lacinia quam leo id velit. Vivamus varius nisi mollis dolor auctor semper. Pellentesque ultricies, dui eu rutrum interdum, augue urna ullamcorper sapien, sed finibus velit neque quis nisi. Sed sit amet tempor elit. Fusce dapibus tellus sit amet enim aliquet rutrum. Donec ut eros arcu. Maecenas nibh nisi, pulvinar ac ultrices vitae, eleifend nec urna. Etiam ultricies, leo eu bibendum consequat, nibh tortor elementum est, in tincidunt eros lorem at ipsum.
+
+Pellentesque arcu nisi, condimentum sed sem eget, laoreet egestas augue. Donec eget nibh eu diam auctor sodales. Praesent nec est sit amet justo rhoncus ultricies. Donec cursus lorem justo, eget aliquet elit vulputate et. Nulla egestas odio at velit varius, non accumsan mauris fermentum. Curabitur non risus eget velit convallis porttitor. Nam porta turpis nibh, vel lobortis ipsum consectetur vitae. Fusce consectetur ultrices placerat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum fermentum nisl hendrerit mattis.
+
+Aenean in aliquam eros, id hendrerit nulla. Morbi pharetra scelerisque diam, vel tincidunt arcu mollis et. Vivamus efficitur porta felis ac dictum. Quisque vitae tortor sed quam scelerisque gravida a accumsan ipsum. Curabitur viverra arcu leo, in luctus nunc posuere sed. In laoreet commodo purus, cursus iaculis libero ullamcorper quis. Fusce nisi ante, vulputate vitae sapien rutrum, viverra laoreet felis. Suspendisse viverra gravida turpis a pulvinar. Aenean quis ipsum mauris. Vivamus eget augue ut nibh porttitor sagittis non non eros. Suspendisse sapien ex, ultrices eu volutpat nec, hendrerit at erat. Morbi eu interdum justo, eu fringilla erat. Integer nibh mauris, iaculis non vestibulum vel, condimentum sodales justo. Suspendisse sed risus elit.
+
+Integer dolor sem, feugiat quis ligula a, fermentum lobortis erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet nunc eget blandit bibendum. Ut et dictum enim. In tristique lectus sed magna maximus, in fermentum libero fringilla. Suspendisse potenti. Aliquam velit purus, vestibulum ultrices ante sit amet, ultricies pulvinar ante. In tortor velit, pulvinar id consequat sit amet, varius sit amet lacus. Maecenas maximus ligula massa, a posuere ligula aliquam vitae. Integer aliquam ullamcorper enim et sodales. Fusce ultrices, enim et dictum ornare, sapien lorem euismod nisl, ac luctus ante nunc nec mi. Fusce quis libero mollis lorem malesuada tempor. Nunc tempor porta justo, at vestibulum quam porta sit amet.
+
+Vestibulum vitae vulputate nibh. Pellentesque hendrerit velit neque, nec vestibulum mauris facilisis eu. Donec malesuada, est eget tincidunt luctus, dui massa sagittis dolor, ut auctor dui sapien in est. Mauris condimentum sit amet nisi eget aliquet. Maecenas feugiat id nulla et volutpat. Aenean sit amet felis vel est placerat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                    </Run>
                 </Paragraph>
                 <Paragraph>
                     <TextBlock>
@@ -59,28 +88,28 @@
                             <Border Height="40" Width="40" Background="Aquamarine" CornerRadius="5"/>
                         </Paragraph>
                     </ListItem>
-                    <ListItem>
-                        <Paragraph>
-                            <Viewbox RenderTransformOrigin="0.5,0.5">
-                                <Viewbox.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="0.4" ScaleY="0.4"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Viewbox.RenderTransform>
-                                <Polyline
+                </List>
+                <Paragraph>
+                    <Viewbox RenderTransformOrigin="0.5,0.5">
+                        <Viewbox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.4" ScaleY="0.4"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Viewbox.RenderTransform>
+                        <Polyline
                             Points="10,110 60,10 110,110 105,110 60,18 15,110 10,110"
                             Stroke="#BB0000"
                             Fill="#FF0000"
                             StrokeThickness="2" >
-                                    <Polyline.Effect>
-                                        <DropShadowEffect Color="#FF9999" ShadowDepth="0" Direction="0" BlurRadius="25"  />
-                                    </Polyline.Effect>
-                                </Polyline>
+                            <Polyline.Effect>
+                                <DropShadowEffect Color="#FF9999" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                            </Polyline.Effect>
+                        </Polyline>
 
-                                <!--<Polyline
+                        <!--<Polyline
                             Points="10,105 110,105 110,10 115,10 115,110 10,110 10,105"
                             Stroke="#00BB00"
                             Fill="#00FF00"
@@ -90,10 +119,35 @@
                                 <DropShadowEffect Color="#99FF99" ShadowDepth="0" Direction="0" BlurRadius="25"  />
                             </Polyline.Effect>
                         </Polyline>-->
-                            </Viewbox>
-                        </Paragraph>
-                    </ListItem>
-                </List>
+                    </Viewbox>
+                </Paragraph>
+                <Table Name="Table">
+                    <TableRowGroup>
+                        <TableRow TextElement.FontWeight="SemiBold">
+                            <TableCell>
+                                <Paragraph>No</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Number</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Nsn</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Aql</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Ok</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Exchange</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Deficient</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
                 <BlockUIContainer DataContext="{Binding Application}">
                     <ListView ItemsSource="{Binding Breakdown}"/>
                 </BlockUIContainer>

@@ -55,5 +55,17 @@ namespace WPF
                 });
             }, CancellationToken.None, TaskCreationOptions.LongRunning, new StaTaskScheduler(1));
         }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            Service.MessageBoxService service = new Service.MessageBoxService();
+            for (int i = 0; i < 5; i++)
+            {
+                Debug.WriteLine($"Generating letter {(i + 1)}");
+                service.Show(new ClientCreditReportViewModel());
+                Debug.WriteLine("Finished");
+            }
+            Debug.WriteLine("Documents generated");
+        }
     }
 }

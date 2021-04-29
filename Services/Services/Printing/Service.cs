@@ -4,6 +4,9 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Markup;
+using System.Windows.Xps;
+using System.Xml;
 
 namespace Services.Printing
 {

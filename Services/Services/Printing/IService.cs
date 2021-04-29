@@ -1,4 +1,5 @@
-﻿using System.Windows.Documents;
+﻿using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Services.Printing
 {

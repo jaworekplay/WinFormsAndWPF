@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Input;
 using ViewModel.Commands;
@@ -17,7 +18,7 @@ namespace ViewModel
         {
             Application = new Models.Application();
             Application.Breakdown = new ObservableCollection<Models.LoanPurpose>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Application.Breakdown.Add(new Models.LoanPurpose { ID = i, Amount = (i + 1) * 100, Notes = $"{i}" });
             }
@@ -52,6 +53,13 @@ namespace ViewModel
 
         private void printCommandMethod(object parameter)
         {
+            if (parameter is object[] printParams)
+            {
+                var doc = (FixedDocument)printParams[0];
+                var content = (PageContent)printParams[1];
+
+                doc.Pages.Add(content);
+            }
             if (parameter is FlowDocument fd)
             {
                 printingService.AutoPrint(fd, "Report", "Loan Confirmation");
