@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace ViewModel.Commands
 {
-    public class RelayCommand : ICommand
+    public class RelayCommand : IRelayCommand
     {
         public event EventHandler CanExecuteChanged;
         private Action<object> _execute;
@@ -31,6 +31,11 @@ namespace ViewModel.Commands
         public void Execute(object parameter)
         {
             _execute.Invoke(parameter);
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

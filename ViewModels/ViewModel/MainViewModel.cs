@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,10 +13,10 @@ namespace ViewModel
         private Services.Printing.IService printingService;
         public MainViewModel()
         {
-            PrintCommand = new RelayCommand(printCommandMethod);
-            printingService = new Services.Printing.Service();
-
-            CurrentViewModel = new LargeDataViewModel();
+            CycleVmsCommand = new RelayCommand(cycleVMs);
+            VMs = new ObservableCollection<BaseViewModel>() { new CustomerViewModel(), new LargeDataViewModel(), new LoanConfirmationViewModel() };
+            CurrentIndex = 0;
+            CurrentViewModel = VMs[CurrentIndex];
         }
 
         private BaseViewModel currentViewModel;
@@ -26,21 +27,42 @@ namespace ViewModel
             set { currentViewModel = value; OnPropertyChanged(); }
         }
 
+        private ObservableCollection<BaseViewModel> vms;
 
-        private ICommand printCommand;
-
-        public ICommand PrintCommand
+        public ObservableCollection<BaseViewModel> VMs
         {
-            get { return printCommand; }
-            set { printCommand = value; OnPropertyChanged(); }
+            get { return vms; }
+            set { vms = value; OnPropertyChanged(); }
         }
 
-        private void printCommandMethod(object parameter)
+        private ICommand cycleVmsCommand;
+
+        public ICommand CycleVmsCommand
         {
-            if (parameter is FlowDocument fd)
+            get { return cycleVmsCommand; }
+            set { cycleVmsCommand = value; OnPropertyChanged(); }
+        }
+
+        private int currentIndex;
+
+        public int CurrentIndex
+        {
+            get { return currentIndex; }
+            set { currentIndex = value; OnPropertyChanged(); }
+        }
+
+
+        private void cycleVMs(object parameter)
+        {
+            if (CurrentIndex < (VMs.Count - 1))
             {
-                printingService.Print(fd, "Loan Confirmation Letter");
+                ++CurrentIndex;
             }
+            else
+            {
+                CurrentIndex = 0;
+            }
+            CurrentViewModel = VMs[CurrentIndex];
         }
     }
 }

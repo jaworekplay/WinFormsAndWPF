@@ -24,5 +24,10 @@ namespace WPF_UserControls
         {
             InitializeComponent();
         }
+
+        private void Viewbox_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
     }
 }

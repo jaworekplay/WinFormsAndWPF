@@ -17,21 +17,21 @@ namespace ViewModel
             Init();
         }
 
-        async void Init()
+        void Init()
         {
-            await Task.Run(() =>
-            {
-                Debug.WriteLine($"Creating items from Thread: {Thread.CurrentThread.ManagedThreadId}");
-                for (int i = 0; i < 10_000; i++)
-                {
-                    Products.Add(new Models.FixedProduct
-                    {
-                        LenderName = $"Lender Name {i}",
-                        PlanName = $"Plan {i}"
-                    });
-                }
-                Debug.WriteLine($"Finished creating items from Thread: {Thread.CurrentThread.ManagedThreadId}");
-            });
+            _ = Task.Run(() =>
+              {
+                  Debug.WriteLine($"Creating items from Thread: {Thread.CurrentThread.ManagedThreadId}");
+                  for (int i = 0; i < 10_000; i++)
+                  {
+                      Products.Add(new Models.FixedProduct
+                      {
+                          LenderName = $"Lender Name {i}",
+                          PlanName = $"Plan {i}"
+                      });
+                  }
+                  Debug.WriteLine($"Finished creating items from Thread: {Thread.CurrentThread.ManagedThreadId}");
+              });
         }
 
         public ObservableCollection<Models.FixedProduct> Products { get; set; }
