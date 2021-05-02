@@ -16,20 +16,6 @@ namespace WPF_UserControls.Converters
         public Visibility WhenNull { get; set; }
         public Visibility WhenNotNullOrEmpty { get; set; }
 
-
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value == null)
-            {
-                return WhenNull;
-            }
-            if (value is string s)
-            {
-                return s.Length > 0 ? WhenNotNullOrEmpty : WhenEmpty;
-            }
-            return Visibility.Visible;
-        }
-
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             Console.WriteLine($"First parameter {values[TextIndex]}, Second parameter: {values[KeyboardFocusIndex]}");
@@ -43,11 +29,6 @@ namespace WPF_UserControls.Converters
                 return WhenNotNullOrEmpty;
             }
             return WhenNull;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

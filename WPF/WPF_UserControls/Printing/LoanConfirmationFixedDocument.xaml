@@ -25,7 +25,6 @@
                 </Grid>
             </FixedPage>
         </PageContent>
-        <converters:PrintingMultiValueConverter x:Key="PrintingConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -36,12 +35,6 @@
             <FixedDocument Name="fxDoc"/>
         </DocumentViewer>
         <Button Content="Print" Command="{Binding PrintCommand}" Grid.Row="1">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource PrintingConverter}">
-                    <Binding ElementName="fxDoc"/>
-                    <Binding Source="{StaticResource report}"/>
-                </MultiBinding>
-            </Button.CommandParameter>
         </Button>
     </Grid>
 </UserControl>

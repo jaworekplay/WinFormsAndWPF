@@ -23,49 +23,9 @@ namespace WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ViewModel.MainViewModel vm;
-        private readonly object semaphor = new object();
         public MainWindow()
         {
             InitializeComponent();
-            vm = this.DataContext as ViewModel.MainViewModel;
-        }
-
-        public ObservableCollection<ViewModel.LargeDataViewModel> Collection { get; set; } = new ObservableCollection<ViewModel.LargeDataViewModel>();
-
-        private async void btnRender_Click(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Collection.Add(new ViewModel.LargeDataViewModel());
-            }
-
-            await Task.Factory.StartNew(() =>
-            {
-                Parallel.ForEach(Collection,
-                new ParallelOptions
-                {
-                    MaxDegreeOfParallelism = Environment.ProcessorCount,
-                    TaskScheduler = new StaTaskScheduler(Environment.ProcessorCount)
-                }, vm =>
-                {
-                    //once they are done render!!!
-                    Services.MessageBoxService service = new Services.MessageBoxService();
-                    service.RenderOnly(vm);
-                });
-            }, CancellationToken.None, TaskCreationOptions.LongRunning, new StaTaskScheduler(1));
-        }
-
-        private void btnTest_Click(object sender, RoutedEventArgs e)
-        {
-            Service.MessageBoxService service = new Service.MessageBoxService();
-            for (int i = 0; i < 5; i++)
-            {
-                Debug.WriteLine($"Generating letter {(i + 1)}");
-                service.Show(new ClientCreditReportViewModel());
-                Debug.WriteLine("Finished");
-            }
-            Debug.WriteLine("Documents generated");
         }
     }
 }
