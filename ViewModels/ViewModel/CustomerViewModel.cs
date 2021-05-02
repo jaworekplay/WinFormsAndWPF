@@ -21,6 +21,7 @@ namespace ViewModel
             Coins.Add(new Coin("Coin 5"));
 
             FirstName = "A name here";
+            Title = "Customer View Model";
         }
 
         private string firstName;

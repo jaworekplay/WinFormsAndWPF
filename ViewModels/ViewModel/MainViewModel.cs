@@ -14,10 +14,13 @@ namespace ViewModel
         private Services.Printing.IService printingService;
         public MainViewModel()
         {
+            Title = "Main View Model";
             CycleVmsCommand = new RelayCommand(cycleVMs);
             VMs = new ObservableCollection<BaseViewModel>() { new CustomerViewModel(), new LargeDataViewModel(), new LoanConfirmationViewModel() };
+            Breadcrumbs = new ObservableCollection<BaseViewModel>();
             CurrentIndex = 0;
             CurrentViewModel = VMs[CurrentIndex];
+            Breadcrumbs.Add(CurrentViewModel);
         }
 
         private BaseViewModel currentViewModel;
@@ -34,6 +37,14 @@ namespace ViewModel
         {
             get { return vms; }
             set { vms = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<BaseViewModel> breadcrumbs;
+
+        public ObservableCollection<BaseViewModel> Breadcrumbs
+        {
+            get { return breadcrumbs; }
+            set { breadcrumbs = value; OnPropertyChanged(); }
         }
 
         private ICommand cycleVmsCommand;
@@ -64,6 +75,7 @@ namespace ViewModel
                 CurrentIndex = 0;
             }
             CurrentViewModel = VMs[CurrentIndex];
+            Breadcrumbs.Add(CurrentViewModel);
         }
     }
 }

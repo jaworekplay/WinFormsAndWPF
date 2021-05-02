@@ -38,4 +38,61 @@ namespace ViewModel.Commands
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
+
+    public class RelayCommand<T> : IRelayCommand
+    {
+        public event EventHandler CanExecuteChanged;
+        private Action<T> _execute;
+        private Action _executeNoParams;
+        private Predicate<T> _canExecute;
+        private Func<bool> _canExecuteNoParams;
+
+        #region Contructors
+        public RelayCommand(Action<T> execute)
+        {
+            _execute = execute;
+            _canExecute = (o) => true;
+        }
+
+        public RelayCommand(Action execute)
+        {
+            _executeNoParams = execute;
+            _canExecuteNoParams = () => true;
+        }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute) : this(execute)
+        {
+            _canExecute = canExecute;
+        }
+
+        public RelayCommand(Action execute, Predicate<T> canExecute) : this(execute)
+        {
+            _canExecute = canExecute;
+        }
+
+        public RelayCommand(Action execute, Func<bool> canExecute) : this(execute)
+        {
+            _canExecuteNoParams = canExecute;
+        } 
+        #endregion
+
+        public bool CanExecute(object parameter)
+        {
+            var primitiveTypeCheck = (T)parameter;
+            return _canExecute?.Invoke(primitiveTypeCheck) ?? _canExecuteNoParams.Invoke();
+        }
+
+        public void Execute(object parameter)
+        {
+            var primitiveTypeCheck = (T)parameter;
+
+            _execute?.Invoke(primitiveTypeCheck);
+            _canExecuteNoParams.Invoke();
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 }

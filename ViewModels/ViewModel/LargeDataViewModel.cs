@@ -14,6 +14,7 @@ namespace ViewModel
         public LargeDataViewModel()
         {
             Products = new ObservableCollection<Models.FixedProduct>();
+            Title = "Large Data View Model";
             Init();
         }
 

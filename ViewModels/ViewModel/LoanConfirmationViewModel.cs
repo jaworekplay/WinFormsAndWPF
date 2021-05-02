@@ -24,6 +24,7 @@ namespace ViewModel
             }
 
             GreetingTitle = "Mr. L Banach";
+            Title = "Loan Confirmation View Model";
 
             PrintCommand = new RelayCommand(printCommandMethod);
             printingService = new Services.Printing.Service();
