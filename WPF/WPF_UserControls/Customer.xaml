@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-            xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+            xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel" 
             x:Class="WPF_UserControls.Customer"
             mc:Ignorable="d" 
             d:DataContext="{d:DesignInstance vm:CustomerViewModel, IsDesignTimeCreatable=True}"
@@ -20,17 +20,23 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <TextBlock Text="Name:"/>
         <TextBlock Text="Surname:" Grid.Row="1"/>
         <TextBlock Text="DOB:" Grid.Row="2"/>
-        <Border BorderBrush="Green" BorderThickness="5">
-            <TextBlock FontSize="100" TextTrimming="CharacterEllipsis">
-        Hel<Border Width="20" Height="75" Background="Red" BorderBrush="Blue" BorderThickness="5"/>lo!
-            </TextBlock>
-        </Border>
 
         <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding FirstName}" AcceptsReturn="True" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Surname}" AcceptsReturn="True" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding DOB, StringFormat=\{0:D\}}" AcceptsReturn="True" VerticalAlignment="Top"/>
+
+        <ListView Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding Coins}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding Symbol}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

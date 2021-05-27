@@ -7,14 +7,28 @@
              xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="UserControl" x:Key="UserControl.Loaded.Animation">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate DataType="{x:Type vm:LoanConfirmationViewModel}">
-            <uc:Loading/>
+            <uc:Loading Style="{StaticResource UserControl.Loaded.Animation}"/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:LargeDataViewModel}">
-            <uc:LargeData/>
+            <uc:LargeData Style="{StaticResource UserControl.Loaded.Animation}"/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
-            <uc:Customer/>
+            <uc:Customer Style="{StaticResource UserControl.Loaded.Animation}"/>
         </DataTemplate>
         <Style x:Key="VeryNiceAndCleanToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
@@ -122,7 +136,7 @@
             <Setter Property="UndoLimit" Value="10"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">                        
+                    <ControlTemplate TargetType="{x:Type TextBox}">
                         <Grid>
                             <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                 <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
