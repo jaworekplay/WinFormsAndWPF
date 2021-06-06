@@ -1,6 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Controls;
 using ViewModel.Commands;
+using System.Windows.Media;
 
 namespace ViewModel
 {
@@ -18,6 +21,7 @@ namespace ViewModel
             CurrentIndex = 0;
             CurrentViewModel = VMs[CurrentIndex];
             Breadcrumbs.Add(CurrentViewModel);
+            CurrentViewModel.BreadcrumbBorder = new Border { BorderBrush = Brushes.LightCoral, BorderThickness = new Thickness(2)};
         }
 
         private BaseViewModel currentViewModel;
@@ -71,6 +75,7 @@ namespace ViewModel
                 CurrentIndex = 0;
             }
             CurrentViewModel = VMs[CurrentIndex];
+            SetBreadcrumbBorder(CurrentViewModel.Title);
 
             if (!Breadcrumbs.Contains(CurrentViewModel))
             {
@@ -89,12 +94,31 @@ namespace ViewModel
         private void switchVM(object parameter)
         {
             var title = (string)parameter;
-            
+            SetBreadcrumbBorder(title);
+        }
+
+        private void SetBreadcrumbBorder(string vmTitle)
+        {
             foreach (var t in VMs)
             {
-                if (t.Title == title)
+                if (t.Title == vmTitle)
                 {
                     CurrentViewModel = t;
+                    var newBorder = new Border
+                    {
+                        BorderBrush = Brushes.LightCoral,
+                        BorderThickness = new Thickness(2)
+                    };
+                    t.BreadcrumbBorder = newBorder;
+                }
+                else
+                {
+                    var newBorder = new Border
+                    {
+                        BorderBrush = Brushes.Gray,
+                        BorderThickness = new Thickness(2)
+                    };
+                    t.BreadcrumbBorder = newBorder;
                 }
             }
         }

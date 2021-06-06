@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
+using System.Windows.Controls;
 
 namespace ViewModel
 {
@@ -18,9 +16,16 @@ namespace ViewModel
 
         public string Title
         {
-            get { return title; }
+            get => title;
             protected set { title = value; OnPropertyChanged(); }
         }
 
+        private Border breadcrumbBorder;
+
+        public Border BreadcrumbBorder
+        {
+            get => breadcrumbBorder;
+            set { breadcrumbBorder = value; OnPropertyChanged(); }
+        }
     }
 }

@@ -35,6 +35,15 @@
                                             Content="{Binding Title}"
                                             Command="{Binding DataContext.SwitchVmCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                             CommandParameter="{Binding Title}">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border BorderThickness="{Binding BreadcrumbBorder.BorderThickness}"
+                                                            BorderBrush="{Binding BreadcrumbBorder.BorderBrush}"
+                                                            SnapsToDevicePixels="True">
+                                                        <ContentPresenter></ContentPresenter>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
                                         </Button>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
