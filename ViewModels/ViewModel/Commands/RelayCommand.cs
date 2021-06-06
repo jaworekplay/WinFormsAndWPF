@@ -47,7 +47,7 @@ namespace ViewModel.Commands
         private Predicate<T> _canExecute;
         private Func<bool> _canExecuteNoParams;
 
-        #region Contructors
+        #region Constructors
         public RelayCommand(Action<T> execute)
         {
             _execute = execute;
