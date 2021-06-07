@@ -15,7 +15,7 @@ namespace ViewModel
         {
             Title = "Main View Model";
             CycleVmsCommand = new RelayCommand(cycleVMs);
-            SwitchVmCommand = new RelayCommand(switchVM);
+            SwitchVmCommand = new RelayCommand<BaseViewModel>(switchVM);
             VMs = new ObservableCollection<BaseViewModel>() { new CustomerViewModel(), new LargeDataViewModel(), new LoanConfirmationViewModel() };
             Breadcrumbs = new ObservableCollection<BaseViewModel>();
             CurrentIndex = 0;
@@ -91,9 +91,9 @@ namespace ViewModel
             private set { switchVmCommand = value; OnPropertyChanged(); }
         }
 
-        private void switchVM(object parameter)
+        private void switchVM(BaseViewModel parameter)
         {
-            var title = (string)parameter;
+            var title = parameter.Title;
             SetBreadcrumbBorder(title);
         }
 

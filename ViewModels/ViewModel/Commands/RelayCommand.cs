@@ -87,7 +87,6 @@ namespace ViewModel.Commands
             var primitiveTypeCheck = (T)parameter;
 
             _execute?.Invoke(primitiveTypeCheck);
-            _canExecuteNoParams.Invoke();
         }
 
         public void RaiseCanExecuteChanged()
