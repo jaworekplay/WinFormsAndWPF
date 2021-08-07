@@ -1,4 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Input;
 using ViewModel.Commands;
 
@@ -25,7 +30,7 @@ namespace ViewModel
 
         public BaseViewModel CurrentViewModel
         {
-            get => currentViewModel;
+            get { return currentViewModel; }
             set { currentViewModel = value; OnPropertyChanged(); }
         }
 
@@ -33,6 +38,7 @@ namespace ViewModel
 
         public ObservableCollection<BaseViewModel> VMs
         {
+            get { return vms; }
             get => vms;
             set { vms = value; OnPropertyChanged(); }
         }
@@ -60,7 +66,8 @@ namespace ViewModel
             get => currentIndex;
             set { currentIndex = value; OnPropertyChanged(); }
         }
-        
+
+
         private void cycleVMs(object parameter)
         {
             if (CurrentIndex < (VMs.Count - 1))

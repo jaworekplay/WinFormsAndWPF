@@ -24,6 +24,11 @@
         <TextBlock Text="Name:"/>
         <TextBlock Text="Surname:" Grid.Row="1"/>
         <TextBlock Text="DOB:" Grid.Row="2"/>
+        <Border BorderBrush="Green" BorderThickness="5">
+            <TextBlock FontSize="100" TextTrimming="CharacterEllipsis">
+        Hel<Border Width="20" Height="75" Background="Red" BorderBrush="Blue" BorderThickness="5"/>lo!
+            </TextBlock>
+        </Border>
 
         <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding FirstName}" AcceptsReturn="True" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Surname}" AcceptsReturn="True" VerticalAlignment="Top"/>
