@@ -188,6 +188,7 @@
                                     <Condition Property="IsEnabled" Value="False"/>
                                 </MultiTrigger.Conditions>
                                 <Setter TargetName="placeholder" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="placeholder" Property="TextBlock.Text" Value="N/A"/>
                             </MultiTrigger>
                             <Trigger Property="Text" Value="{x:Null}">
                                 <Setter TargetName="placeholder" Property="Visibility" Value="Visible"/>

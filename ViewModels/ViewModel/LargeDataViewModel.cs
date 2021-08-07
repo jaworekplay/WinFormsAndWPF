@@ -27,8 +27,10 @@ namespace ViewModel
                   {
                       Products.Add(new Models.FixedProduct
                       {
+                          ID = i,
                           LenderName = $"Lender Name {i}",
-                          PlanName = $"Plan {i}"
+                          PlanName = $"Plan {i}",
+                          APR = i % 2 == 0 ? 4d : 6d
                       });
                   }
                   Debug.WriteLine($"Finished creating items from Thread: {Thread.CurrentThread.ManagedThreadId}");

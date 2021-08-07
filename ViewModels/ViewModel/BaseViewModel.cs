@@ -20,12 +20,12 @@ namespace ViewModel
             protected set { title = value; OnPropertyChanged(); }
         }
 
-        private Border breadcrumbBorder;
+        private bool isSelected;
 
-        public Border BreadcrumbBorder
+        public bool IsSelected
         {
-            get => breadcrumbBorder;
-            set { breadcrumbBorder = value; OnPropertyChanged(); }
+            get { return isSelected; }
+            set { isSelected = value; OnPropertyChanged(); }
         }
     }
 }

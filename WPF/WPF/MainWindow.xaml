@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+        xmlns:converters="clr-namespace:WPF_UserControls.Converters;assembly=WPF_UserControls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance vm:MainViewModel}"
         Title="MainWindow" Height="440" Width="800">
 
     <Window.DataContext>
@@ -13,6 +15,7 @@
     </Window.DataContext>
 
     <Window.Resources>
+        <converters:Bool2BorderThicknessConverter x:Key="Bool2BorderThicknessConverter" Thickness="2"/>
         <Style TargetType="ContentControl">
             <Setter Property="Template">
                 <Setter.Value>
@@ -37,10 +40,10 @@
                                             CommandParameter="{Binding .}">
                                             <Button.Template>
                                                 <ControlTemplate TargetType="{x:Type Button}">
-                                                    <Border BorderThickness="{Binding BreadcrumbBorder.BorderThickness}"
-                                                            BorderBrush="{Binding BreadcrumbBorder.BorderBrush}"
+                                                    <Border BorderThickness="{Binding IsSelected, Converter={StaticResource Bool2BorderThicknessConverter}}"
+                                                            BorderBrush="Red"
                                                             SnapsToDevicePixels="True">
-                                                        <ContentPresenter></ContentPresenter>
+                                                        <ContentPresenter/>
                                                     </Border>
                                                 </ControlTemplate>
                                             </Button.Template>

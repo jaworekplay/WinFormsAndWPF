@@ -66,6 +66,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\Bool2BorderThicknessConverter.cs" />
+    <Compile Include="Converters\IntEven2BoolConverter.cs" />
     <Compile Include="Converters\StringVisibilityConverter.cs" />
     <Compile Include="Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
@@ -93,6 +95,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TemplateSelectors\RibbonMenuTemplateSelector.cs" />
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>

@@ -6,15 +6,71 @@
              xmlns:local="clr-namespace:WPF_UserControls"
              xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
              xmlns:models="clr-namespace:Models;assembly=Models"
+             xmlns:converters="clr-namespace:WPF_UserControls.Converters"
              x:Class="WPF_UserControls.LargeData"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="800" d:DataContext="{d:DesignInstance {x:Type vm:LargeDataViewModel}}">
-    <ListView ItemsSource="{Binding Products}" VirtualizingPanel.IsVirtualizing="True">
+    <UserControl.Resources>
+        <converters:IntEven2BoolConverter x:Key="IntEven2BoolConverter"/>
+    </UserControl.Resources>
+    <ListView ItemsSource="{Binding Products}" VirtualizingPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling">
         <ListView.View>
             <GridView>
-                <GridViewColumn Header="Lender" DisplayMemberBinding="{Binding LenderName}"/>
-                <GridViewColumn Header="Plan Name" DisplayMemberBinding="{Binding PlanName}"/>
-                <GridViewColumn Header="Fixed Repayment" DisplayMemberBinding="{Binding FixedPayment}"/>
+                <GridViewColumn Header="Lender">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LenderName}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Foreground" Value="DarkOrange"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ID, Converter={StaticResource IntEven2BoolConverter}}" Value="true">
+                                                <Setter Property="Foreground" Value="ForestGreen"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn Header="Plan Name">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding PlanName}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Background" Value="Beige"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ID, Converter={StaticResource IntEven2BoolConverter}}" Value="false">
+                                                <Setter Property="Background" Value="Black"/>
+                                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn Header="Fixed Repayment" DisplayMemberBinding="{Binding FixedPayment}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FixedPayment}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ID, Converter={StaticResource IntEven2BoolConverter}}" Value="true">
+                                                <Setter Property="Foreground" Value="YellowGreen"/>
+                                                <Setter Property="Background" Value="CadetBlue"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
                 <GridViewColumn Header="Fixed Rate" DisplayMemberBinding="{Binding FixedRate}"/>
                 <GridViewColumn Header="Fixed Term" DisplayMemberBinding="{Binding FixedTerm}"/>
                 <GridViewColumn Header="APR" DisplayMemberBinding="{Binding APR}"/>
