@@ -38,7 +38,6 @@ namespace ViewModel
 
         public ObservableCollection<BaseViewModel> VMs
         {
-            get { return vms; }
             get => vms;
             set { vms = value; OnPropertyChanged(); }
         }
